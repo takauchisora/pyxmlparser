@@ -12,6 +12,9 @@ setup(
         author_email="solutions@vishnukiran.tech",
         maintainer="takauchisora",
         description="CLI interface to convert XML into various formats",
+        project_urls={
+        "Code": "https://github.com/takauchisora/pyxmlparser",
+    },
         include_package_data=True,
         python_requires="!=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
 
