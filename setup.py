@@ -7,7 +7,7 @@ setup(
         name="pyxmlparser",
         version="0.1",
         py_modules=['main'],
-        license="MIT",
+        license="BSD",
         author="Vishnukiran K V",
         author_email="solutions@vishnukiran.tech",
         maintainer="takauchisora",
