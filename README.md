@@ -1,5 +1,7 @@
 # PyXmlParser - Python XML Parser
 
+[![PyPI version](https://badge.fury.io/py/pyxmlparser.svg)](https://badge.fury.io/py/pyxmlparser)
+
 Python Module to convert XML to csv. Project under developement. Not a stable release.
 Subsequent versions will be able to convert the files to different formats.
 Works Extremely well with Large XML files.
