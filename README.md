@@ -4,11 +4,7 @@ Python Module to convert XML to csv.
 Subsequent versions will be able to convert the files to different formats.
 Works Extremely well with Large XML files.
 
-## pip install pyxmlparser
 
-Navigate to the folder where the XML file is present on the terminal. 
-call the function pyxmlparser with the other required inputs.
-Eg: pyxmlparser xml_filename output_csv_name.csv xpathstring_csvcolumns.txt --encoding='xml-file-encoding'
 
 ### Prerequisites
 
@@ -16,17 +12,22 @@ python version 3.4 or above
 lxml
 click
 
-### Installing -pip install pyxmlparser
+### Installing -
 
-launch the terminal in the folder where the xml parser is present.
-call function pyxmlparser in the CLI.
-if the output.csv file is not present the function will create a new csv file.
 ```
+pip install pyxmlparser
+
+```
+Navigate to the folder where the XML file is present on the terminal. 
+call the function pyxmlparser with the other required inputs.
+Eg: pyxmlparser xml_filename output_csv_name.csv xpathstring_csvcolumns.txt --encoding='xml-file-encoding'
+
 ## Deployment Notes
 
 This is not a Stable Release.The project is currently under development
 
 please follow this github link for updates: https://github.com/takauchisora/pyxmlparser
+
 ## Versioning
 
 Follow the GitHub Link for updates. 
@@ -46,6 +47,3 @@ Some rules:
 
 This project is licensed under the BSD License - see the [LICENSE.rst](LICENSE.rst) file for details
 
-
-
-```
