@@ -1,4 +1,4 @@
-Copyright © 2014 by takauchisora.
+Copyright © 2019 by takauchisora.
 
 Some rights reserved.
 
