@@ -39,7 +39,6 @@ def _prepare_files_for_conversion(config_dict):
         writer = csv.writer(outfile)
         writer = writer.writerow(lines[1].split(','))
 
-        print("CSV file is prepared")
 
 
     return lines
