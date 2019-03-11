@@ -2,16 +2,17 @@
 
 This project is a small extension of the lxml module. This provides CLI to convert a flat XML
 
-structure into a .csv or .xlsx structure initially. I might add more formats in the future. Ultimately we
-
-would also want to deal with nested structures.
+structure into a .csv or .xlsx structure initially. I might add more formats in the future.
+Ultimately we would also want to deal with nested structures. This file is a part of the
+module that deals with xml and is single source for xml file parsing.
 
 '''
 
 from lxml import etree
-import click
 
-import csv
+
+from utils import write_data_to_csv
+
 
 def _fast_iter(context, func, config_dict, *args, **kwargs):
     ''' Build XML Tree and clear '''
@@ -34,21 +35,9 @@ def _process_element(elem, config_dict):
 
     tag_data = elem.xpath(config_dict["xpath_string"])
 
-    if tag_data:
+    if config_dict["outfile"].endswith(".csv"):
 
-        with open(config_dict["outfile"], 'a') as outfile:
-
-            writer = csv.writer(outfile, delimiter=",")
-            writer.writerow(tag_data)
-    else:
-
-        with open('Error-files-'+config_dict["outfile"], 'a') as outfile:
-
-            writer = csv.writer(outfile, delimiter=",")
-            writer.writerow(tag_data)
-
-
-
+        write_data_to_csv(tag_data, config_dict)
 
 
 def _parse_xml(config_dict):
@@ -68,17 +57,16 @@ def _parse_xml(config_dict):
 
 
         context = etree.iterparse(data_file,\
-                tag=config_dict["tag"],\
-                strip_cdata=False, events=("end",))
+                                tag=config_dict["tag"],\
+                                strip_cdata=False, events=("end",))
 
 
     else:
 
         context = etree.iterparse(data_file,\
-
-                tag=config_dict["tag"],\
-                encoding=config_dict["encoding"],
-                strip_cdata=False, events=("end",))
+                            tag=config_dict["tag"],\
+                            encoding=config_dict["encoding"],\
+                            strip_cdata=False, events=("end",))
 
 
 
