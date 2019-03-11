@@ -1,3 +1,10 @@
+'''
+
+The file that contains the entry point into the project.
+This is a CLI that converts XML to CSV. More formats to be added soon.
+
+'''
+
 import click
 
 from utils import _prepare_files_for_conversion
@@ -30,10 +37,17 @@ def parser_main(infile, outfile, tag, xpathfile, encoding):
 
         config_dict["encoding"] = encoding
 
-    prepare_data = _prepare_files_for_conversion     #Obtain XPATH string and also prepare csv file for output
-    config_dict["xpath_string"] = prepare_data(config_dict)[0] # The XPATH string is present in the first line of the XPATh file
+    prepare_data = _prepare_files_for_conversion
+
+    #Obtain XPATH string and also prepare csv file for output
+
+    config_dict["xpath_string"] = prepare_data(config_dict)[0]
+
+
+    # The XPATH string is present in the first line of the XPATh file
 
     _parse_xml(config_dict) # Calling the main parser function
+
 
 
 
