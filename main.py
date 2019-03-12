@@ -18,8 +18,10 @@ from parser_xml import _parse_xml
 @click.argument("xpathfile")
 @click.option("--encoding",\
         help="Enter this flag if you have a encoding")
-
-def parser_main(infile, outfile, tag, xpathfile, encoding):
+@click.option("--verbose", is_flag=True,\
+        help="Verbose mode will help you see each line being processed",\
+        required=False)
+def parser_main(infile, outfile, tag, xpathfile, encoding, verbose):
 
     ''' Entry point function to collect all arguments from the command line '''
 
@@ -40,13 +42,15 @@ def parser_main(infile, outfile, tag, xpathfile, encoding):
     prepare_data = _prepare_files_for_conversion
 
     #Obtain XPATH string and also prepare csv file for output
-
-    config_dict["xpath_string"] = prepare_data(config_dict)[0]
-
+    xpath_string_csv_columns = prepare_data(config_dict, verbose)
+    config_dict["xpath_string"] = xpath_string_csv_columns[0]
+    config_dict["csv_columns"] = xpath_string_csv_columns[1]
 
     # The XPATH string is present in the first line of the XPATh file
 
-    _parse_xml(config_dict) # Calling the main parser function
+    _parse_xml(config_dict, verbose) # Calling the main parser function
+
+    click.echo("Done!")
 
 
 

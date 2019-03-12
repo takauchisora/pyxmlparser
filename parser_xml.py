@@ -9,16 +9,16 @@ module that deals with xml and is single source for xml file parsing.
 '''
 
 from lxml import etree
+import click
+
+from utils import write_data_to_csv, null_check
 
 
-from utils import write_data_to_csv
-
-
-def _fast_iter(context, func, config_dict, *args, **kwargs):
+def _fast_iter(context, func, config_dict, verbose, *args, **kwargs):
     ''' Build XML Tree and clear '''
 
     for event, elem in context:
-        func(elem, config_dict, *args, **kwargs)  # Decorated Function
+        func(elem, config_dict, verbose, *args, **kwargs)  # Decorated Function
         elem.clear()
 
         for ancestor in elem.xpath('ancestor-or-self::*'):
@@ -29,18 +29,36 @@ def _fast_iter(context, func, config_dict, *args, **kwargs):
 
 
 
-def _process_element(elem, config_dict):
+def _process_element(elem, config_dict, verbose):
 
     ''' Business Logic to convert XML to csv '''
 
     tag_data = elem.xpath(config_dict["xpath_string"])
 
+
+
+    if len(tag_data) != len(config_dict["csv_columns"]):
+
+        # If the the lengths are not equal we know there are missing elements.
+        # There might be a better way to do this.
+
+        tag_data = null_check(elem, tag_data, config_dict, verbose)
+
+
+
+
     if config_dict["outfile"].endswith(".csv"):
+
+
+        if verbose:
+
+            click.echo(tag_data)
+
 
         write_data_to_csv(tag_data, config_dict)
 
 
-def _parse_xml(config_dict):
+def _parse_xml(config_dict, verbose):
 
 
     '''
@@ -71,7 +89,7 @@ def _parse_xml(config_dict):
 
 
 
-    _fast_iter(context, _process_element, config_dict)
+    _fast_iter(context, _process_element, config_dict, verbose)
 
 
 
