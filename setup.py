@@ -8,8 +8,7 @@ with io.open("README.md", "rt", encoding="utf8") as f:
 setup(
 
         name="pyxmlparser",
-        version="0.1.4",
-        py_modules=['main'],
+        version="0.1.6.1",
         license="BSD",
         author="takauchisora",
         author_email="solutions@vishnukiran.tech",
@@ -17,6 +16,7 @@ setup(
         description="CLI interface to convert XML into various formats",
         long_description=readme,
         long_description_content_type='text/markdown',
+        packages=["xml_parser"],
         project_urls={
         "Code": "https://github.com/takauchisora/pyxmlparser",
     },
@@ -25,8 +25,8 @@ setup(
 
         install_requires=[
 
-            "Click",
-            "lxml",
+            "click>=7.0",
+            "lxml>=4.3.2",
         ],
         entry_points='''
         [console_scripts]
