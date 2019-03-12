@@ -11,7 +11,7 @@ module that deals with xml and is single source for xml file parsing.
 from lxml import etree
 import click
 
-from utils import write_data_to_csv, null_check
+from .utils import write_data_to_csv, null_check
 
 
 def _fast_iter(context, func, config_dict, verbose, *args, **kwargs):

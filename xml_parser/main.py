@@ -7,8 +7,8 @@ This is a CLI that converts XML to CSV. More formats to be added soon.
 
 import click
 
-from utils import _prepare_files_for_conversion
-from parser_xml import _parse_xml
+from .utils import _prepare_files_for_conversion
+from .parser_xml import _parse_xml
 
 
 @click.command()

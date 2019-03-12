@@ -8,7 +8,7 @@ with io.open("README.md", "rt", encoding="utf8") as f:
 setup(
 
         name="pyxmlparser",
-        version="0.1.2",
+        version="0.1.4",
         py_modules=['main'],
         license="BSD",
         author="takauchisora",
@@ -16,6 +16,7 @@ setup(
         maintainer="takauchisora",
         description="CLI interface to convert XML into various formats",
         long_description=readme,
+        long_description_content_type='text/markdown',
         project_urls={
         "Code": "https://github.com/takauchisora/pyxmlparser",
     },
@@ -29,7 +30,7 @@ setup(
         ],
         entry_points='''
         [console_scripts]
-        pyxmlparser=main:parser_main
+        pyxmlparser=xml_parser.main:parser_main
         ''',
         classifiers=[
         "Operating System :: OS Independent",

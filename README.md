@@ -16,9 +16,8 @@ click
 
 ### Installing -
 
-```
+```python
 pip install pyxmlparser
-
 ```
 Navigate to the folder where the XML file is present on the terminal. 
 call the function pyxmlparser with the other required inputs.
