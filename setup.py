@@ -1,17 +1,21 @@
+import io
 from setuptools import  setup
 
 
+with io.open("README.md", "rt", encoding="utf8") as f:
+    readme = f.read()
 
 setup(
 
         name="pyxmlparser",
-        version="0.1",
+        version="0.1.2",
         py_modules=['main'],
         license="BSD",
-        author="Vishnukiran K V",
+        author="takauchisora",
         author_email="solutions@vishnukiran.tech",
         maintainer="takauchisora",
         description="CLI interface to convert XML into various formats",
+        long_description=readme,
         project_urls={
         "Code": "https://github.com/takauchisora/pyxmlparser",
     },
