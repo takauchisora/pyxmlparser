@@ -1,5 +1,22 @@
 # PyXmlParser - Python XML Parser
 
+
+## Project Motivation
+
+
+We have tons of parsers today. Most good. But I did not find a parser that parses insanely large files, not without paying for it anyway.
+
+This project is mainly deals with such a situation. If your file is small. Welcome! Although there are a lot if other utilities out there too that might even be
+faster.
+
+pyxmlparser is tested against a file 100 GB in size. Did quite well. Please note that since we iteratively scan through the majority of the file pyxmlparser is a little slower.
+
+But then again there is no such thing as a free lunch. This project is an attempt to avoid those memory errors that can drive anyone against the wall.
+
+
+This project is called pyxmlparser for now. Ultimately the goal is to deal with other formats as well.
+
+
 [![PyPI version](https://badge.fury.io/py/pyxmlparser.svg)](https://badge.fury.io/py/pyxmlparser)
 
 Python Module to convert XML to csv. Project under developement. Not a stable release.
