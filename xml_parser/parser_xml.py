@@ -27,15 +27,10 @@ def _fast_iter(context, func, config_dict, verbose, *args, **kwargs):
     del context
 
 
-
-
 def _process_element(elem, config_dict, verbose):
-
     ''' Business Logic to convert XML to csv '''
 
     tag_data = elem.xpath(config_dict["xpath_string"])
-
-
 
     if len(tag_data) != len(config_dict["csv_columns"]):
 
@@ -44,52 +39,35 @@ def _process_element(elem, config_dict, verbose):
 
         tag_data = null_check(elem, tag_data, config_dict, verbose)
 
-
-
-
     if config_dict["outfile"].endswith(".csv"):
-
 
         if verbose:
 
             click.echo(tag_data)
 
-
         write_data_to_csv(tag_data, config_dict)
 
 
 def _parse_xml(config_dict, verbose):
-
-
     '''
 
     Parse the .xml file to and build a xml tree before converting it to .csv
 
     '''
 
-    data_file = config_dict["infile"] # Too lazy to change the name
+    data_file = config_dict["infile"]  # Too lazy to change the name
 
     if not config_dict.get("encoding"):
 
-
-
-
-        context = etree.iterparse(data_file,\
-                                tag=config_dict["tag"],\
-                                strip_cdata=False, events=("end",))
-
+        context = etree.iterparse(data_file,
+                                  tag=config_dict["tag"],
+                                  strip_cdata=False, events=("end",))
 
     else:
 
-        context = etree.iterparse(data_file,\
-                            tag=config_dict["tag"],\
-                            encoding=config_dict["encoding"],\
-                            strip_cdata=False, events=("end",))
-
-
-
+        context = etree.iterparse(data_file,
+                                  tag=config_dict["tag"],
+                                  encoding=config_dict["encoding"],
+                                  strip_cdata=False, events=("end",))
 
     _fast_iter(context, _process_element, config_dict, verbose)
-
-
-
