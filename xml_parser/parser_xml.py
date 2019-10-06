@@ -61,13 +61,15 @@ def _parse_xml(config_dict, verbose):
 
         context = etree.iterparse(data_file,
                                   tag=config_dict["tag"],
-                                  strip_cdata=False, events=("end",))
+                                  strip_cdata=False,
+                                  events=("end", ))
 
     else:
 
         context = etree.iterparse(data_file,
                                   tag=config_dict["tag"],
                                   encoding=config_dict["encoding"],
-                                  strip_cdata=False, events=("end",))
+                                  strip_cdata=False,
+                                  events=("end", ))
 
     _fast_iter(context, _process_element, config_dict, verbose)

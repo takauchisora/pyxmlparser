@@ -31,7 +31,7 @@ def _prepare_files_for_conversion(config_dict, verbose):
 
     with open(config_dict["outfile"], "w") as outfile:
 
-        #  Write columns to the output csv file 
+        #  Write columns to the output csv file
 
         writer = csv.writer(outfile)
         writer = writer.writerow(lines[1].split(','))
@@ -76,7 +76,6 @@ def null_check(elem, tag_data, config_dict, verbose):
             for i in range(len(csv_columns)):
 
                 if not elem.xpath(xpath_string_list[i]):
-
                     ''' Add None to the corresponsing index '''
 
                     tag_data.insert(i, None)

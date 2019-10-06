@@ -16,9 +16,9 @@ from .parser_xml import _parse_xml
 @click.argument("outfile")
 @click.argument("tag")
 @click.argument("xpathfile")
-@click.option("--encoding",
-              help="Enter this flag if you have an encoding")
-@click.option("--verbose", is_flag=True,
+@click.option("--encoding", help="Enter this flag if you have an encoding")
+@click.option("--verbose",
+              is_flag=True,
               help="Verbose mode will help you see each line being processed",
               required=False)
 def parser_main(infile, outfile, tag, xpathfile, encoding, verbose):
