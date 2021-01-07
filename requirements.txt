@@ -1,6 +1,6 @@
 Click==7.0
 filelock==3.0.10
-lxml==4.3.2
+lxml==4.6.2
 pluggy==0.9.0
 py==1.8.0
 -e git+https://nextorbitadmin@bitbucket.org/nextorbitadmin/pyxmlparser.git@39d05b446e325c9142ff12765501506fdc0bbdf6#egg=pyxmlparser
